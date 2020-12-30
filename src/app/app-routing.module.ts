@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GameComponent } from './game/game.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+import { QuestionListComponent } from './question-list/question-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: GameComponent },
+  { path: 'list', component: QuestionListComponent },
+  { path: 'question', component: QuestionDetailComponent },
+  { path: '', redirectTo: '/list', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
