@@ -1,0 +1,14 @@
+<body>
+  <h1>Jugador en turno: {{ configFile.currentPlayer }}</h1>
+  <div class="list">
+    <div
+      (click)="goTo(question)"
+      class="question"
+      *ngFor="let question of questions"
+    >
+      <p [class.active]="question.id === configFile.activeQuestion">
+        {{ question.question }}
+      </p>
+    </div>
+  </div>
+</body>
