@@ -5,14 +5,39 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PipesModule } from './pipes/pipes.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { QuestionListComponent } from './question-list/question-list.component';
+import { GameComponent } from './game/game.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDDWXQTMlS7eN5WSHyk5dYhIr8cjy4kWl8",
+  authDomain: "marioplan-8d013.firebaseapp.com",
+  databaseURL: "https://marioplan-8d013.firebaseio.com",
+  projectId: "marioplan-8d013",
+  storageBucket: "marioplan-8d013.appspot.com",
+  messagingSenderId: "739690477518",
+  appId: "1:739690477518:web:a0be8b3a5122787880dd9f"
+};
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuestionListComponent,
+    GameComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PipesModule
+    PipesModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
   ],
   providers: [],
   bootstrap: [AppComponent],
