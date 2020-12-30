@@ -1,0 +1,32 @@
+<body>
+  <div class="error" *ngIf="errorVisible">{{ getError() }}</div>
+  <div class="top-score">
+    <div class="score-box">
+      {{ getCurrentScore() }}
+    </div>
+  </div>
+  <div class="main">
+    <div class="score-box">
+      {{ playerOne }}
+    </div>
+    <div class="answers-container" *ngIf="question">
+      <div
+        class="answer"
+        *ngFor="let ans of question?.answers | byScore; let i = index"
+      >
+        <div class="active" *ngIf="ans.status">
+          <p>{{ ans.answer | uppercase }}</p>
+          <div class="answer-value">
+            {{ getAnswerScore(ans.rank) }}
+          </div>
+        </div>
+        <div class="not-active" *ngIf="!ans.status">
+          <p>{{ i + 1 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="score-box">
+      {{ playerTwo }}
+    </div>
+  </div>
+</body>
