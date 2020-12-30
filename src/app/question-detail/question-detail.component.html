@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>{{ question.question | titlecase }}</h1>
+  <div class="table-header">
+    <h3>Pregunta</h3>
+    <h3>Puntos</h3>
+  </div>
+  <div class="list">
+    <div
+      class="answer"
+      [class.not-active]="answer.status"
+      (click)="updateAnswerStatus(answer)"
+      *ngFor="let answer of question.answers | byScore; let i = index"
+    >
+      <h3>{{ answer.answer | titlecase }}</h3>
+      <h3>{{ getAnswerScore(answer.rank) }}</h3>
+    </div>
+  </div>
+
+  <div class="players">
+    <div class="players-inner">
+      <div class="player-btn btn" (click)="setPlayer(1)">1</div>
+      <div class="player-btn btn" (click)="setPlayer(2)">2</div>
+    </div>
+    <div class="error btn" (click)="activateError()">Error</div>
+    <div class="score btn" (click)="updateScore()">Score</div>
+    <div class="win btn" (click)="win()">Win</div>
+  </div>
+</div>
