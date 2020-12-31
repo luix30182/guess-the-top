@@ -1,0 +1,48 @@
+<div class="container" [class.error]="error">
+  <form class="inn">
+    <input
+      name="question"
+      [(ngModel)]="question"
+      required
+      type="text"
+      placeholder="Pregunta"
+    />
+    <input
+      name="ans1"
+      [(ngModel)]="answers[0].answer"
+      required
+      type="text"
+      placeholder="Respuesta 1"
+    />
+    <input
+      name="ans2"
+      [(ngModel)]="answers[1].answer"
+      required
+      type="text"
+      placeholder="Respuesta 2"
+    />
+    <input
+      name="ans3"
+      [(ngModel)]="answers[2].answer"
+      required
+      type="text"
+      placeholder="Respuesta 3"
+    />
+    <input
+      name="ans4"
+      [(ngModel)]="answers[3].answer"
+      required
+      type="text"
+      placeholder="Respuesta 4"
+    />
+    <input
+      name="ans5"
+      [(ngModel)]="answers[4].answer"
+      required
+      type="text"
+      placeholder="Respuesta 5"
+    />
+  </form>
+
+  <div class="btn" (click)="add()">Guardar</div>
+</div>
